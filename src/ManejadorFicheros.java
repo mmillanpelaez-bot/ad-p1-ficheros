@@ -73,5 +73,33 @@ public class ManejadorFicheros {
     }
 
     // 9) Elimina el archivo o muestra mensaje de error si no existe
+    public void borraFicheiro(String dirName, String fileName) {
+        File file = new File(dirName, fileName);
+        if (file.exists() && file.isFile()) {
+            if (!file.delete()) {
+                System.out.println("Ficheiro borrado");
+            } else {
+                System.out.println("Ficheiro inexistente");
+            }
+        }
+    }
 
+    // 10) Elimina la carpeta solo si existe y no tiene descendencia
+    public void borraDirectorio(String dirName) {
+        File dir = new File(dirName);
+        if (dir.exists() && dir.isDirectory()) {
+            if (!dir.delete()) {
+                System.out.println("Ruta inexistente ou con descendencia");
+            } else {
+                System.out.println("Directorio borrado");
+            }
+        } else {
+            System.out.println("Ruta inexistente ou con descendencia");
+        }
+    }
+
+    // 11)
+    public void mContido(String dirName) {
+
+    }
 }
